@@ -1,0 +1,110 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.online.shopping</groupId>
+	<artifactId>orange-aggregate</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>orange-aggregate</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.version>1.0.0-SNAPSHOT</project.version>
+		<spring.version>3.0.6.RELEASE</spring.version>
+		<hibernate.version>1</hibernate.version>
+	</properties>
+
+	<modules>
+		<module>../orange-repository</module>
+		<module>../orange-service</module>
+		<!--  <module>../orange-portlet</module> -->
+	</modules>
+
+	<!-- 配置部署的远程仓库 -->
+	<distributionManagement>
+		<repository>
+			<id>deployment</id>
+			<name>Internal Releases</name>
+			<url>http://localhost:8081/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>deployment</id>
+			<name>Internal Snapshots</name>
+			<url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.6</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>2.5.1</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.2</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+						<updateReleaseInfo>true</updateReleaseInfo>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.surefire</groupId>
+					<artifactId>surefire-booter</artifactId>
+					<version>2.10</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<groupId>org.apache.maven.surefire</groupId>
+					<artifactId>maven-surefire-common</artifactId>
+					<version>2.10</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- 配置tools，是因为实际中发现，其他开发人员从svn上check out工程以后，有的人会报错，找不到tools.jar，这样配置以后就好了 -->
+			<!-- <dependency> <groupId>com.sun</groupId> <artifactId>tools</artifactId> 
+				<version>1.6.0</version> <scope>system</scope> <systemPath>${env.JAVA_HOME}/lib/tools.jar</systemPath> 
+				</dependency> -->
+		</dependencies>
+	</dependencyManagement>
+
+</project>
