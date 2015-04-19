@@ -15,12 +15,13 @@
 		<project.version>1.0.0-SNAPSHOT</project.version>
 		<spring.version>3.0.6.RELEASE</spring.version>
 		<hibernate.version>1</hibernate.version>
+		<spring.release.version>4.0.6.RELEASE</spring.release.version>
 	</properties>
 
 	<modules>
 		<module>../orange-repository</module>
 		<module>../orange-service</module>
-		<!--  <module>../orange-portlet</module> -->
+		<!-- <module>../orange-portlet</module> -->
 	</modules>
 
 	<!-- 配置部署的远程仓库 -->
@@ -104,6 +105,31 @@
 			<!-- <dependency> <groupId>com.sun</groupId> <artifactId>tools</artifactId> 
 				<version>1.6.0</version> <scope>system</scope> <systemPath>${env.JAVA_HOME}/lib/tools.jar</systemPath> 
 				</dependency> -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.release.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${spring.release.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.release.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc-portlet</artifactId>
+				<version>${spring.release.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-orm</artifactId>
+				<version>${spring.release.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
