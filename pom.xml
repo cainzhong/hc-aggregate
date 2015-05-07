@@ -2,12 +2,12 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.online.shopping</groupId>
-	<artifactId>orange-aggregate</artifactId>
+	<groupId>com.haicai</groupId>
+	<artifactId>hc-aggregate</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
-	<name>orange-aggregate</name>
+	<name>hc-aggregate</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -19,8 +19,8 @@
 	</properties>
 
 	<modules>
-		<module>../orange-repository</module>
-		<module>../orange-service</module>
+		<module>../hc-repository</module>
+		<module>../hc-service</module>
 		<!-- <module>../orange-portlet</module> -->
 	</modules>
 
