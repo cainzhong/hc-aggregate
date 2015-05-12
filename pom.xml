@@ -16,6 +16,7 @@
 		<spring.version>3.0.6.RELEASE</spring.version>
 		<hibernate.version>1</hibernate.version>
 		<spring.release.version>4.0.6.RELEASE</spring.release.version>
+		<spring.webflow.version>2.4.0.RELEASE</spring.webflow.version>
 	</properties>
 
 	<modules>
@@ -129,6 +130,11 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-orm</artifactId>
 				<version>${spring.release.version}</version>
+			</dependency>
+			<dependency>
+      			<groupId>org.springframework.webflow</groupId>
+				<artifactId>spring-webflow</artifactId>
+				<version>${spring.webflow.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
