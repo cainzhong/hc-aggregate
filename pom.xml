@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.haicai</groupId>
@@ -11,11 +10,12 @@
 	<url>http://maven.apache.org</url>
 
 	<properties>
+		<jdk.version>1.7</jdk.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.version>1.0.0-SNAPSHOT</project.version>
-		<spring.version>3.0.6.RELEASE</spring.version>
 		<hibernate.version>1</hibernate.version>
 		<spring.release.version>4.0.6.RELEASE</spring.release.version>
+		<spring.security.version>4.0.0.RELEASE</spring.security.version>
 		<spring.webflow.version>2.4.0.RELEASE</spring.webflow.version>
 	</properties>
 
@@ -47,7 +47,7 @@
 					<artifactId>maven-resources-plugin</artifactId>
 					<version>2.6</version>
 					<configuration>
-						<encoding>UTF-8</encoding>
+						<encoding>${project.build.sourceEncoding}</encoding>
 					</configuration>
 				</plugin>
 
@@ -56,7 +56,9 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>2.5.1</version>
 					<configuration>
-						<encoding>UTF-8</encoding>
+						<encoding>${project.build.sourceEncoding}</encoding>
+						<source>${jdk.version}</source>
+						<target>${jdk.version}</target>
 					</configuration>
 				</plugin>
 
@@ -65,7 +67,7 @@
 					<artifactId>maven-war-plugin</artifactId>
 					<version>2.2</version>
 					<configuration>
-						<encoding>UTF-8</encoding>
+						<encoding>${project.build.sourceEncoding}</encoding>
 					</configuration>
 				</plugin>
 
@@ -83,7 +85,7 @@
 					<artifactId>surefire-booter</artifactId>
 					<version>2.10</version>
 					<configuration>
-						<encoding>UTF-8</encoding>
+						<encoding>${project.build.sourceEncoding}</encoding>
 					</configuration>
 				</plugin>
 
@@ -92,7 +94,7 @@
 					<artifactId>maven-surefire-common</artifactId>
 					<version>2.10</version>
 					<configuration>
-						<encoding>UTF-8</encoding>
+						<encoding>${project.build.sourceEncoding}</encoding>
 					</configuration>
 				</plugin>
 			</plugins>
@@ -103,9 +105,7 @@
 	<dependencyManagement>
 		<dependencies>
 			<!-- 配置tools，是因为实际中发现，其他开发人员从svn上check out工程以后，有的人会报错，找不到tools.jar，这样配置以后就好了 -->
-			<!-- <dependency> <groupId>com.sun</groupId> <artifactId>tools</artifactId> 
-				<version>1.6.0</version> <scope>system</scope> <systemPath>${env.JAVA_HOME}/lib/tools.jar</systemPath> 
-				</dependency> -->
+			<!-- <dependency> <groupId>com.sun</groupId> <artifactId>tools</artifactId> <version>1.6.0</version> <scope>system</scope> <systemPath>${env.JAVA_HOME}/lib/tools.jar</systemPath> </dependency> -->
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
@@ -132,9 +132,32 @@
 				<version>${spring.release.version}</version>
 			</dependency>
 			<dependency>
-      			<groupId>org.springframework.webflow</groupId>
+				<groupId>org.springframework.webflow</groupId>
 				<artifactId>spring-webflow</artifactId>
 				<version>${spring.webflow.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-core</artifactId>
+				<version>${spring.security.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-web</artifactId>
+				<version>${spring.security.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-config</artifactId>
+				<version>${spring.security.version}</version>
+			</dependency>
+
+			<!-- Spring Security JSP Taglib -->
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-taglibs</artifactId>
+				<version>${spring.security.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
