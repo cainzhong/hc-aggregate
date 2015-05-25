@@ -15,7 +15,7 @@
 		<project.version>1.0.0-SNAPSHOT</project.version>
 		<hibernate.version>1</hibernate.version>
 		<spring.release.version>4.0.6.RELEASE</spring.release.version>
-		<spring.security.version>4.0.0.RELEASE</spring.security.version>
+		<spring.security.version>3.0.5.RELEASE</spring.security.version>
 		<spring.webflow.version>2.4.0.RELEASE</spring.webflow.version>
 	</properties>
 
@@ -146,13 +146,11 @@
 				<artifactId>spring-security-web</artifactId>
 				<version>${spring.security.version}</version>
 			</dependency>
-
 			<dependency>
 				<groupId>org.springframework.security</groupId>
 				<artifactId>spring-security-config</artifactId>
 				<version>${spring.security.version}</version>
 			</dependency>
-
 			<!-- Spring Security JSP Taglib -->
 			<dependency>
 				<groupId>org.springframework.security</groupId>
